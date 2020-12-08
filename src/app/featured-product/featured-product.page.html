@@ -1,0 +1,65 @@
+<!-- <ion-header>
+  <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Feature Product</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content fullscreen class="ion-padding" scroll-y="false">
+  <!-- <ion-card>
+    <ion-card-content> -->
+  <ion-slides style="height:60px;" spaceBetween="-15" slidesPerView="auto">
+    <ion-slide style="padding:5px; padding-bottom:0px; max-width:80px;" *ngFor="let item of feturedProduct" (click)="goToProductDetails(item.featured_product_id,item.product_id)">
+      <div>
+        <div style="margin:0 auto; width:55px; height:55px; border:1.5px solid black; border-radius:50px; background-color:white;">
+          <img style="    height: 26px;
+          width: 38px;
+          margin-top: 15px;" src="https://bidmoz.thehereitis.com/bidmoz_app_apis/{{item.product_image_url}}">
+        </div>
+      </div>
+    </ion-slide>
+</ion-slides>
+<!-- </ion-card-content>
+</ion-card> -->
+  <ion-card>
+  <!-- <ion-card-header> -->
+  <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
+  <!-- <ion-card-title style="text-align: center;">i-Phone-SE</ion-card-title>
+    </ion-card-header> -->
+  <ion-card-content>
+  <ion-slides  pager>
+    <ion-slide *ngFor="let item of sessions" (click)="bidCount(item)">
+      <div class="slide">
+        <h2>{{item.product_name}}</h2>
+        <img
+          class="imgHight"
+          src="https://bidmoz.thehereitis.com/bidmoz_app_apis/{{item.product_image_url}}"
+        />
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <!-- Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836. -->
+  </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar color="featured" slot="start bottom">
+        <ion-tab-button>
+          <!-- <ion-label>Music</ion-label> -->
+          <ion-icon
+            name="person-outline"
+            [routerLink]="['/user-account']"
+          ></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button tab="blink">
+          <ion-icon name="flash-off-outline"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,63 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+:root {
+    --ion-color-featured: #383a3e;
+    --ion-color-featured-rgb: 56,58,62;
+    --ion-color-featured-contrast: #ffffff;
+    --ion-color-featured-contrast-rgb: 255,255,255;
+    --ion-color-featured-shade: #313337;
+    --ion-color-featured-tint: #4c4e51;
+  }
+  
+  .ion-color-featured {
+    --ion-color-base: var(--ion-color-featured);
+    --ion-color-base-rgb: var(--ion-color-featured-rgb);
+    --ion-color-contrast: var(--ion-color-featured-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-featured-contrast-rgb);
+    --ion-color-shade: var(--ion-color-featured-shade);
+    --ion-color-tint: var(--ion-color-featured-tint);
+  }
+
+  :root {
+    --ion-color-custom-button: #f5f6f9;
+    --ion-color-custom-button-rgb: 245,246,249;
+    --ion-color-custom-button-contrast: #000000;
+    --ion-color-custom-button-contrast-rgb: 0,0,0;
+    --ion-color-custom-button-shade: #d8d8db;
+    --ion-color-custom-button-tint: #f6f7fa;
+  }
+  
+  .ion-color-custom-button {
+    --ion-color-base: var(--ion-color-custom-button);
+    --ion-color-base-rgb: var(--ion-color-custom-button-rgb);
+    --ion-color-contrast: var(--ion-color-custom-button-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-custom-button-contrast-rgb);
+    --ion-color-shade: var(--ion-color-custom-button-shade);
+    --ion-color-tint: var(--ion-color-custom-button-tint);
+  }

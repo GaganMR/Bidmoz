@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar color="featured" >
+    <!-- class="ion-text-center" -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>User Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <div style="height: 80%; display: flex; align-items: center; justify-content: center;"> -->
+  <ion-card class="container" *ngIf="!isRegistered">
+    <ion-card-content>
+      <form [formGroup]="ionicUserRegisterForm" (ngSubmit)="submitForm()" novalidate>
+        <ion-item lines="full">
+          <ion-label position="floating">Name</ion-label>
+          <ion-input formControlName="user_name" type="text" required></ion-input>
+        </ion-item>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.user_name.errors?.required">
+          Name is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.user_name.errors?.minlength">
+          Name should be min 2 chars long.
+        </span>
+        <ion-item lines="full">
+          <ion-label position="floating">Phone No</ion-label>
+          <ion-input maxlength="10" formControlName="phone_no" type="text" required></ion-input>
+        </ion-item>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.phone_no.errors?.required">
+          Mobile number is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.phone_no.errors?.pattern">
+          Only numerical values allowed.
+        </span>
+        <ion-item lines="full">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" type="email" required></ion-input>
+        </ion-item>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.required">
+          Email is required.
+        </span>
+        <span class="error ion-padding" *ngIf="isSubmitted && errorControl.email.errors?.pattern">
+          Please provide valid email id.
+        </span>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="primary" expand="block">Submit</ion-button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="container" *ngIf="isRegistered">
+    <ion-card-content>
+      <form [formGroup]="verifyOtpForm" (ngSubmit)="SubmitOtPForm()">
+          <p style="text-align: center;">Please enter one time verification code sent to +91{{userData.phone_no}}</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-item >
+              <ion-input type="text" placeholder="Enter Otp" maxlength="4" formControlName="otp"></ion-input>
+            </ion-item>
+          </ion-col>
+          <!--  <ion-col>
+            <ion-item >
+              <ion-input type="tel" placeholder="*" maxlength="1" [(ngModel)] ="OTP.first" #otp1  (keyup)="otpController($event,otp2,'')"  ></ion-input>
+            </ion-item>
+          </ion-col>
+           <ion-col >
+            <ion-item>
+              <ion-input type="tel" placeholder="*" maxlength="1" [(ngModel)] ="OTP.second"#otp2 (keyup)="otpController($event,otp3,otp1)" ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col >
+            <ion-item>
+              <ion-input type="tel" placeholder="*" maxlength="1" #otp3 [(ngModel)] ="OTP.third" (keyup)="otpController($event,otp4,otp2)" ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col >
+            <ion-item>
+              <ion-input type="tel" placeholder="*" maxlength="1" #otp4 [(ngModel)] ="OTP.forth" (keyup)="otpController($event,'',otp3)"></ion-input>
+            </ion-item>
+          </ion-col> -->
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button type="submit" color="primary" expand="block">Submit</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      </form>
+    </ion-card-content>
+  </ion-card>
+<!-- </div> -->
+</ion-content>
+<!-- <ion-footer no-shadow>
+	<ion-toolbar position="bottom">
+    <ion-row>
+      <ion-col>
+    <ion-button type="submit" slot="end" [routerLink]="['/terms-and-condtions']">Continue<ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
+    </ion-col>
+    </ion-row>
+	</ion-toolbar>
+</ion-footer> -->
+<!-- expand="block" slot="end" -->
+
+
+    <!-- <ion-row text-center>
+        <ion-col>
+         <ion-input #otp1 required maxLength="1" (keyup)="otpController($event,otp2,'')">
+         </ion-input>
+         <ion-input #otp2 required maxLength="1" (keyup)="otpController($event,otp3,otp1)">
+         </ion-input>
+         <ion-input #otp3 required maxLength="1" (keyup)="otpController($event,otp4,otp2)">
+         </ion-input>
+         <ion-input #otp4  required maxLength="1" (keyup)="otpController($event,'',otp3)">
+         </ion-input>
+        </ion-col>
+      </ion-row> -->

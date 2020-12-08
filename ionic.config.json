@@ -1,0 +1,10 @@
+{
+  "name": "bido",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}
