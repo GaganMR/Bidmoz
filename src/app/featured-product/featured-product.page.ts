@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { parse } from 'path';
 import { AlertController, LoadingController,ToastController } from '@ionic/angular';
 import { ApiServiceService } from '../api-service.service';
-// import { Parse } from 'parse';
 
 @Component({
   selector: 'app-featured-product',
@@ -15,6 +13,7 @@ export class FeaturedProductPage implements OnInit {
   sessions: any;
   feturedProduct: any;
   userDetails: any;
+  upcommingSessions: any;
 
   constructor(
     private apiServiceService:ApiServiceService,
@@ -27,7 +26,7 @@ export class FeaturedProductPage implements OnInit {
 
   ngOnInit() {
     this.getSession();
-    this.getFeaturedProduct();
+    this.getUpcommingSessions();
   }
   slideOpts = {
     initialSlide: 1,
@@ -45,16 +44,20 @@ export class FeaturedProductPage implements OnInit {
     })
   }
 
-  getFeaturedProduct(){
-    this.apiServiceService.getFeaturedProduct().subscribe((result:any) =>{
+  getUpcommingSessions(){
+    this.apiServiceService.getUpcommingSessions().subscribe((result:any) =>{
       console.log(result);
-      this.feturedProduct = result;
+      this.upcommingSessions = result;
     })
   }
 
-  goToProductDetails(featured_product_id, product_id) {
+  goToProductDetails() {
     // console.log(id)
-    this.router.navigate(['feature-product-details',featured_product_id,product_id])
+    this.router.navigate(['feature-product-details']);
+  }
+  goToUpcommingSessionDetails(session_id){
+    console.log(session_id)
+    this.router.navigate(['upcomming-session-details',session_id])
   }
   
   bidCount(item){
@@ -79,7 +82,6 @@ export class FeaturedProductPage implements OnInit {
                 matchCouponFound = false;
               }
           }
-
           if(matchCouponFound) {
             this.apiServiceService.makeBidCount(bidMatchData).subscribe((result:any)=>{
               console.log(result);
@@ -95,6 +97,17 @@ export class FeaturedProductPage implements OnInit {
       }
     }
      else {
+      this.router.navigate(['sign-in-or-sin-up']);
+    }
+  }
+  editUser(){
+    this.userDetails = JSON.parse(localStorage.getItem('userData'));
+    if(this.userDetails){
+      if(this.userDetails.user_details[0].login_status === "ACTIVE"){
+        let user_id =this.userDetails.user_details[0].user_id;
+        this.router.navigate(['user-account',user_id]);
+      }
+    }else {
       this.router.navigate(['sign-in-or-sin-up']);
     }
   }

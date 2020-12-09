@@ -1,69 +1,80 @@
 <ion-header>
   <ion-toolbar color="featured">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/sign-in-or-sin-up"></ion-back-button>
+    </ion-buttons>
     <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card class="container" *ngIf="!isLoggedIn">
-    <ion-card-content>
-<form [formGroup]="ionicUserLoginForm" (ngSubmit)="loginForm()" novalidate>
-  <ion-item lines="full">
-    <ion-label position="floating">Mobile No</ion-label>
-    <ion-input maxlength="10" formControlName="phone_no" type="text" required></ion-input>
-  </ion-item>
-  <span class="error ion-padding" *ngIf="isSubmitted && errorControl.phone_no.errors?.required">
-    Mobile number is required.
-  </span>
-  <ion-row>
-    <ion-col>
-      <ion-button type="submit" color="danger" expand="block">Sign In</ion-button>
-      <!-- <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a> -->
-    </ion-col>
+  <div class="container">
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <h1  class="ion-text-center"><b>BIDMOZ</b></h1>
+      </ion-toolbar>
+    </ion-header>
+    <ion-card  *ngIf="!isLoggedIn">
+      <ion-card-content>
+        <form [formGroup]="ionicUserLoginForm" (ngSubmit)="loginForm()" novalidate>
+          <ion-item lines="full">
+            <ion-label position="floating">Mobile No</ion-label>
+            <ion-input maxlength="10" formControlName="phone_no" type="text" required></ion-input>
+          </ion-item>
+          <span class="error ion-padding" *ngIf="isSubmitted && errorControl.phone_no.errors?.required">
+            Mobile number is required.
+          </span>
+          <ion-row>
+            <ion-col>
+              <ion-button type="submit" color="danger" expand="block">Sign In</ion-button>
+              <!-- <a [routerLink]="['/forgot-password']" class="small-text">Forgot Password?</a> -->
+            </ion-col>
+  
+          </ion-row>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  
+    <ion-card  *ngIf="isLoggedIn">
+      <ion-card-content>
+        <form [formGroup]="verifyOtpForm" (ngSubmit)="SubmitOtPForm()">
+          <p style="text-align: center;">Please enter one time verification code sent to +91{{userData.phone_no}}</p>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-input type="text" placeholder="Enter Otp" maxlength="4" formControlName="otp"></ion-input>
+                </ion-item>
+              </ion-col>
+              <!-- <ion-col>
+            <ion-item >
+              <ion-input type="tel" placeholder="*" maxlength="1"  #otp1  (keyup)="otpController($event,otp2,'')"  ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col >
+            <ion-item>
+              <ion-input type="tel" placeholder="*" maxlength="1" #otp2 (keyup)="otpController($event,otp3,otp1)" ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col >
+            <ion-item>
+              <ion-input type="tel" placeholder="*" maxlength="1" #otp3  (keyup)="otpController($event,otp4,otp2)" ></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col >
+            <ion-item>
+              <ion-input type="tel" placeholder="*" maxlength="1" #otp4  (keyup)="otpController($event,'',otp3)"></ion-input>
+            </ion-item>
+          </ion-col> -->
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-button type="submit" color="primary" expand="block">Submit</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
 
-  </ion-row>
-</form>
-</ion-card-content>
-  </ion-card>
-
-<ion-card class="container" *ngIf="isLoggedIn">
-  <ion-card-content>
-    <form [formGroup]="verifyOtpForm" (ngSubmit)="SubmitOtPForm()">
-        <p style="text-align: center;">Please enter one time verification code sent to +91{{userData.phone_no}}</p>
-    <ion-grid>
-      <ion-row>
-        <ion-col>
-          <ion-item >
-            <ion-input type="text" placeholder="Enter Otp" maxlength="4" formControlName="otp"></ion-input>
-          </ion-item>
-        </ion-col>
-        <!-- <ion-col>
-          <ion-item >
-            <ion-input type="tel" placeholder="*" maxlength="1"  #otp1  (keyup)="otpController($event,otp2,'')"  ></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col >
-          <ion-item>
-            <ion-input type="tel" placeholder="*" maxlength="1" #otp2 (keyup)="otpController($event,otp3,otp1)" ></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col >
-          <ion-item>
-            <ion-input type="tel" placeholder="*" maxlength="1" #otp3  (keyup)="otpController($event,otp4,otp2)" ></ion-input>
-          </ion-item>
-        </ion-col>
-        <ion-col >
-          <ion-item>
-            <ion-input type="tel" placeholder="*" maxlength="1" #otp4  (keyup)="otpController($event,'',otp3)"></ion-input>
-          </ion-item>
-        </ion-col> -->
-      </ion-row>
-      <ion-row>
-        <ion-col>
-          <ion-button type="submit" color="primary" expand="block">Submit</ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
-  </form>
-  </ion-card-content>
-</ion-card>
 </ion-content>

@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="featured">
+     <ion-buttons slot="start">
+      <ion-back-button defaultHref="/featured-product"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Upcomming-Session</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="upcommingSessionDetails" style="height:100%">
+    <ion-card-content>
+      <ion-slides>
+        <ion-slide *ngFor="let item of upcommingSessionDetails">
+          <div class="slide">
+            <h2>{{item.product_name}}</h2><br>
+            <div class="ion-text-start" style="padding-left: 28px;">
+            <p >#{{item.session_id}}</p>
+            </div>
+            <img
+              class="imgHight"
+              src="https://bidmoz.thehereitis.com/bidmoz_app_apis/{{item.product_image_url}}"
+            />
+            <div class="ion-text-start">
+              <h2><strong>Product Description:</strong></h2>
+              <p>{{item.product_description}}</p>
+            </div>
+            <div class="ion-text-start">
+              <h2>Session starts at:&nbsp;&nbsp;<b>{{item.start_date}}</b></h2>
+              <h2>Session ends at:&nbsp;&nbsp;&nbsp;<b>{{item.end_date}}</b></h2>
+              <h2>Base Price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{item.base_price}}</b></h2>
+            </div>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+    </ion-card>
+</ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiServiceService } from '../api-service.service';
 
 @Component({
@@ -8,30 +9,31 @@ import { ApiServiceService } from '../api-service.service';
 })
 export class UserAccountPage implements OnInit {
   userData: any;
-  user_id: number;
+  user_id:any;
   name: any;
   email: any;
   phone_no: any;
 
   constructor(
-    private apiServiceService:ApiServiceService
-  ) { }
+    private apiServiceService:ApiServiceService,
+    private route: ActivatedRoute
+  ) { 
+    this.user_id = this.route.snapshot.paramMap.get('user_id');
+  }
+ 
 
   ngOnInit() {
     this.getUserData();
   }
 
   getUserData(){
-    this.user_id = 59;
-    this.apiServiceService.getUserDetails(this.user_id).subscribe((res =>{
-      console.log(res[0].user_name);
+    this.apiServiceService.getUserDetails(this.user_id).subscribe((res:any) =>{
+      console.log(res);
       if(res){
-        this.name = res[0].user_name;
-        this.email = res[0].email;
-        this.phone_no = res[0].phone_no;
+        this.userData = res.user_details;
       }
      
-    }))
+    })
   }
 
 }

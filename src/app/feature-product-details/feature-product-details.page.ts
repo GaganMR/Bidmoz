@@ -14,16 +14,13 @@ export class FeatureProductDetailsPage implements OnInit {
   product_id: any;
   productData: any;
   userDetails: any;
+  featuredProduct:any;
 
   constructor(
     private socialSharing: SocialSharing,
     private apiServiceService:ApiServiceService,
     private route: ActivatedRoute
     ) {
-      this.featured_product_id = this.route.snapshot.paramMap.get('featured_product_id'); 
-      this.product_id = this.route.snapshot.paramMap.get('product_id');
-      console.log("featured_product_id",this.featured_product_id);
-      console.log("product_id",this.product_id);
      }
     
 
@@ -43,9 +40,9 @@ export class FeatureProductDetailsPage implements OnInit {
   }
 
   getfeatureProduct(){
-    this.apiServiceService.getfeatureProductDetails(this.product_id).subscribe((result:any) =>{
+    this.apiServiceService.getFeaturedProduct().subscribe((result:any) =>{
       console.log(result);
-      this.productData = result;
+      this.featuredProduct = result;
     })
   }
   getFeatureProductDetails(){

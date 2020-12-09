@@ -9,8 +9,13 @@
 </ion-header>
 
 <ion-content>
-  <!-- <div style="height: 80%; display: flex; align-items: center; justify-content: center;"> -->
-  <ion-card class="container" *ngIf="!isRegistered">
+  <div class="container">
+    <ion-header class="ion-no-border">
+      <ion-toolbar>
+        <h1  class="ion-text-center"><b>BIDMOZ</b></h1>
+      </ion-toolbar>
+    </ion-header>
+  <ion-card  *ngIf="!isRegistered">
     <ion-card-content>
       <form [formGroup]="ionicUserRegisterForm" (ngSubmit)="submitForm()" novalidate>
         <ion-item lines="full">
@@ -92,7 +97,7 @@
       </form>
     </ion-card-content>
   </ion-card>
-<!-- </div> -->
+  </div>
 </ion-content>
 <!-- <ion-footer no-shadow>
 	<ion-toolbar position="bottom">

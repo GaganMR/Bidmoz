@@ -8,21 +8,27 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>
+  <ion-grid>   
     <ion-row>
-      <ion-col>
-        <ion-avatar style="margin-top: 22px;">
-          <img height="500" src="../../assets/photo.jpg" />
-        </ion-avatar>
-      </ion-col>
-      <ion-col>
-        <p><b>{{name}}</b></p>
-        <p>{{phone_no}}</p>
-        <p>{{email}}</p>
-      </ion-col>
-      <ion-col style="margin-top: 17px;" class="ion-no-padding"><ion-icon  class="ion-text-end" name="create-outline"></ion-icon></ion-col>
+    <ion-col>
+      <ion-avatar class="image-center">
+        <img height="500" src="../../assets/photo.jpg" />
+      </ion-avatar>
+
+    </ion-col>
+    <!-- <ion-col style="margin-top: 17px;" class="ion-no-padding"> -->
+      <ion-icon  class="ion-text-end" name="create-outline"></ion-icon>
+    <!-- </ion-col> -->
     </ion-row>
-    <ion-card>
+    <ion-row class="center">
+      <ion-col *ngFor="let item of userData">
+        <p><b>{{item.user_name}}</b></p>
+        <p>{{item.phone_no}}</p>
+        <p>{{item.email}}</p>
+      </ion-col>
+      
+    </ion-row>
+    <!-- <ion-card>
       <ion-row>
         <ion-col class="abc">
           <ion-icon name="star"></ion-icon>
@@ -33,7 +39,7 @@
           <div><p>08</p></div>
         </ion-col>
       </ion-row>
-    </ion-card>
+    </ion-card> -->
     <ion-card>
       <ion-row>
         <ion-col><p>Coupons You Have</p></ion-col>

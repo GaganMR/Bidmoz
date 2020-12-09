@@ -61,3 +61,10 @@
     --ion-color-shade: var(--ion-color-custom-button-shade);
     --ion-color-tint: var(--ion-color-custom-button-tint);
   }
+  
+ion-card {
+    --ion-background-color: white;
+}
+ion-content{
+    --ion-background-color:#EBEBF5;
+}

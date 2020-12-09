@@ -8,10 +8,8 @@
 </ion-header> -->
 
 <ion-content fullscreen class="ion-padding" scroll-y="false">
-  <!-- <ion-card>
-    <ion-card-content> -->
   <ion-slides style="height:60px;" spaceBetween="-15" slidesPerView="auto">
-    <ion-slide style="padding:5px; padding-bottom:0px; max-width:80px;" *ngFor="let item of feturedProduct" (click)="goToProductDetails(item.featured_product_id,item.product_id)">
+    <ion-slide style="padding:5px; padding-bottom:0px; max-width:80px;" *ngFor="let item of upcommingSessions" (click)="goToUpcommingSessionDetails(item.session_id)">
       <div>
         <div style="margin:0 auto; width:55px; height:55px; border:1.5px solid black; border-radius:50px; background-color:white;">
           <img style="    height: 26px;
@@ -21,27 +19,27 @@
       </div>
     </ion-slide>
 </ion-slides>
-<!-- </ion-card-content>
-</ion-card> -->
-  <ion-card>
-  <!-- <ion-card-header> -->
-  <!-- <ion-card-subtitle>Destination</ion-card-subtitle> -->
-  <!-- <ion-card-title style="text-align: center;">i-Phone-SE</ion-card-title>
-    </ion-card-header> -->
+  <ion-card *ngIf="sessions">
   <ion-card-content>
   <ion-slides  pager>
     <ion-slide *ngFor="let item of sessions" (click)="bidCount(item)">
       <div class="slide">
         <h2>{{item.product_name}}</h2>
+        <div class="ion-text-start" style="padding-left: 28px;">
+          <p >#{{item.session_id}}</p>
+          </div>
         <img
           class="imgHight"
           src="https://bidmoz.thehereitis.com/bidmoz_app_apis/{{item.product_image_url}}"
         />
+        <div class="ion-text-start">
+          <h2>Ends in:&nbsp;&nbsp;&nbsp;<b>{{item.end_date}}</b></h2>
+          <h2>Current Price:&nbsp;&nbsp;&nbsp;&nbsp;<b>{{item.current_price}}</b></h2>
+          <h2>Participants:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{item.no_of_participants}}</b></h2>
+        </div>
       </div>
     </ion-slide>
   </ion-slides>
-
-  <!-- Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836. -->
   </ion-card-content>
   </ion-card>
 </ion-content>
@@ -49,14 +47,12 @@
   <ion-toolbar>
     <ion-tabs>
       <ion-tab-bar color="featured" slot="start bottom">
-        <ion-tab-button>
-          <!-- <ion-label>Music</ion-label> -->
+        <ion-tab-button (click)="editUser()">
           <ion-icon
             name="person-outline"
-            [routerLink]="['/user-account']"
           ></ion-icon>
         </ion-tab-button>
-        <ion-tab-button tab="blink">
+        <ion-tab-button  (click)="goToProductDetails()">
           <ion-icon name="flash-off-outline"></ion-icon>
         </ion-tab-button>
       </ion-tab-bar>

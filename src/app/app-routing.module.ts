@@ -28,7 +28,7 @@ const routes: Routes = [
     loadChildren: () => import('./featured-product/featured-product.module').then( m => m.FeaturedProductPageModule)
   },
   {
-    path: 'user-account',
+    path: 'user-account/:user_id',
     loadChildren: () => import('./user-account/user-account.module').then( m => m.UserAccountPageModule)
   },
   {
@@ -36,7 +36,7 @@ const routes: Routes = [
     loadChildren: () => import('./coupon-purchase/coupon-purchase.module').then( m => m.CouponPurchasePageModule)
   },
   {
-    path: 'feature-product-details/:featured_product_id/:product_id',
+    path: 'feature-product-details',
     loadChildren: () => import('./feature-product-details/feature-product-details.module').then( m => m.FeatureProductDetailsPageModule)
   },
   {
@@ -51,6 +51,10 @@ const routes: Routes = [
     path: 'coupon-details/:coupon_id',
     loadChildren: () => import('./coupon-details/coupon-details.module').then( m => m.CouponDetailsPageModule)
   },
+  {
+    path: 'upcomming-session-details/:session_id',
+    loadChildren: () => import('./upcomming-session-details/upcomming-session-details.module').then( m => m.UpcommingSessionDetailsPageModule)
+  }
 ];
 
 @NgModule({
