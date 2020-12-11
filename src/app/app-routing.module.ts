@@ -24,10 +24,6 @@ const routes: Routes = [
     loadChildren: () => import('./bid-plans/bid-plans.module').then( m => m.BidPlansPageModule)
   },
   {
-    path: 'featured-product',
-    loadChildren: () => import('./featured-product/featured-product.module').then( m => m.FeaturedProductPageModule)
-  },
-  {
     path: 'user-account/:user_id',
     loadChildren: () => import('./user-account/user-account.module').then( m => m.UserAccountPageModule)
   },
@@ -54,6 +50,14 @@ const routes: Routes = [
   {
     path: 'upcomming-session-details/:session_id',
     loadChildren: () => import('./upcomming-session-details/upcomming-session-details.module').then( m => m.UpcommingSessionDetailsPageModule)
+  },
+  {
+    path: 'current-sessions',
+    loadChildren: () => import('./current-sessions/current-sessions.module').then( m => m.CurrentSessionsPageModule)
+  },
+  {
+    path: 'featured-product-list',
+    loadChildren: () => import('./featured-product-list/featured-product-list.module').then( m => m.FeaturedProductListPageModule)
   }
 ];
 

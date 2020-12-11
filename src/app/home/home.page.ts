@@ -14,7 +14,7 @@ export class HomePage {
 
   splashClicked() {
     if(localStorage.getItem("terms&conditions") === "accepted") {
-      this.router.navigate(['featured-product']);
+      this.router.navigate(['current-sessions']);
     } else {
       this.router.navigate(['terms-and-condtions']);
     }

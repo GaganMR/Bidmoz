@@ -1,20 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { NavController } from '@ionic/angular';
-import { AlertController, LoadingController,ToastController } from '@ionic/angular';
+import { AlertController, LoadingController, NavController, ToastController } from '@ionic/angular';
 import { ApiServiceService } from '../api-service.service';
 
 @Component({
-  selector: 'app-featured-product',
-  templateUrl: './featured-product.page.html',
-  styleUrls: ['./featured-product.page.scss'],
+  selector: 'app-current-sessions',
+  templateUrl: './current-sessions.page.html',
+  styleUrls: ['./current-sessions.page.scss'],
 })
-export class FeaturedProductPage implements OnInit {
+export class CurrentSessionsPage implements OnInit {
   sessions: any;
   feturedProduct: any;
   userDetails: any;
   upcommingSessions: any;
-
   constructor(
     private apiServiceService:ApiServiceService,
     private router:Router,
@@ -53,7 +51,7 @@ export class FeaturedProductPage implements OnInit {
 
   goToProductDetails() {
     // console.log(id)
-    this.router.navigate(['feature-product-details']);
+    this.router.navigate(['featured-product-list']);
   }
   goToUpcommingSessionDetails(session_id){
     console.log(session_id)

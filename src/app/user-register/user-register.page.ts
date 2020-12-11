@@ -118,7 +118,7 @@ export class UserRegisterPage implements OnInit {
       this.apiServiceService.verifyOTP(user).subscribe((res:any)=>{
         console.log(res);
         localStorage.setItem('userData', JSON.stringify(res));
-        this.routes.navigate(['featured-product']);
+        this.routes.navigate(['current-sessions']);
       })
     }
   }

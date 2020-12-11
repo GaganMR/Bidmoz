@@ -22,7 +22,7 @@ export class TermsAndCondtionsPage implements OnInit {
 
   acceptTermsAndConditions() {
     localStorage.setItem("terms&conditions","accepted");
-    this.router.navigate(['featured-product']);
+    this.router.navigate(['current-sessions']);
   }
 
 }

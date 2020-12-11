@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { FeaturedProductPageRoutingModule } from './featured-product-routing.module';
+import { CurrentSessionsPageRoutingModule } from './current-sessions-routing.module';
 
-import { FeaturedProductPage } from './featured-product.page';
+import { CurrentSessionsPage } from './current-sessions.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FeaturedProductPageRoutingModule
+    CurrentSessionsPageRoutingModule
   ],
-  declarations: [FeaturedProductPage]
+  declarations: [CurrentSessionsPage]
 })
-export class FeaturedProductPageModule {}
+export class CurrentSessionsPageModule {}

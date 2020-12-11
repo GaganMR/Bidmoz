@@ -106,7 +106,7 @@ export class LoginPage implements OnInit {
       console.log(res);
       localStorage.setItem('userData', JSON.stringify(res));
       loading.dismiss();
-      this.routes.navigate(['featured-product']);
+      this.routes.navigate(['current-sessions']);
     })
 
   }
