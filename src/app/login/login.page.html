@@ -7,21 +7,21 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <h1  class="ion-text-center"><b>BIDMOZ</b></h1>
+    </ion-toolbar>
+  </ion-header>
   <div class="container">
-    <ion-header class="ion-no-border">
-      <ion-toolbar>
-        <h1  class="ion-text-center"><b>BIDMOZ</b></h1>
-      </ion-toolbar>
-    </ion-header>
     <ion-card  *ngIf="!isLoggedIn">
       <ion-card-content>
         <form [formGroup]="ionicUserLoginForm" (ngSubmit)="loginForm()" novalidate>
           <ion-item lines="full">
-            <ion-label position="floating">Mobile No</ion-label>
+            <ion-label position="floating">Phone Number</ion-label>
             <ion-input maxlength="10" formControlName="phone_no" type="text" required></ion-input>
           </ion-item>
           <span class="error ion-padding" *ngIf="isSubmitted && errorControl.phone_no.errors?.required">
-            Mobile number is required.
+            Phone number is required.
           </span>
           <ion-row>
             <ion-col>

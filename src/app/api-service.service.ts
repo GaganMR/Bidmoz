@@ -82,11 +82,18 @@ export class ApiServiceService {
     console.log(data);
     return this.http.post(this.url + '/payments.php?method=generateCouponPurchaseOrder', data);
   }
+
   getUpcommingSessions(){
     return this.http.get(this.url + '/sessions.php?method=getUpcomingSessions');
   }
+
   getUpcommingSessionsDetails(session_id){
     return this.http.get(this.url + `/sessions.php?method=getSessionDetails&session_id=`+session_id);
+  }
+
+  updateCouponPaymentDetails(data) {
+    console.log(data);
+    return this.http.post(this.url + '/payments.php?method=updatePaymentDetails', data);
   }
   
 }

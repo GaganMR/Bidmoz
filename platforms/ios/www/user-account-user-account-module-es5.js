@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"/featured-product\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>User Account</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col>\n        <ion-avatar style=\"margin-top: 22px;\">\n          <img height=\"500\" src=\"../../assets/photo.jpg\" />\n        </ion-avatar>\n      </ion-col>\n      <ion-col>\n        <p><b>{{name}}</b></p>\n        <p>{{phone_no}}</p>\n        <p>{{email}}</p>\n      </ion-col>\n      <ion-col style=\"margin-top: 17px;\" class=\"ion-no-padding\"><ion-icon  class=\"ion-text-end\" name=\"create-outline\"></ion-icon></ion-col>\n    </ion-row>\n    <ion-card>\n      <ion-row>\n        <ion-col class=\"abc\">\n          <ion-icon name=\"star\"></ion-icon>\n          <div><p>52</p></div>\n        </ion-col>\n        <ion-col offset class=\"abc\">\n          <ion-icon name=\"logo-codepen\"></ion-icon>\n          <div><p>08</p></div>\n        </ion-col>\n      </ion-row>\n    </ion-card>\n    <ion-card>\n      <ion-row>\n        <ion-col><p>Coupons You Have</p></ion-col>\n      </ion-row>\n    </ion-card>\n    <ion-card>\n      <ion-row>\n        <ion-col><p>Product References 2</p></ion-col>\n      </ion-row>\n    </ion-card>\n  </ion-grid>\n</ion-content>\n";
+      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar color=\"featured\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"/current-sessions\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>User Account</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-grid style=\"margin-top: 15px;\">   \r\n    <ion-row>\r\n    <ion-col>\r\n      <ion-avatar class=\"image-center\">\r\n        <img height=\"500\" src=\"../../assets/photo.jpg\" />\r\n      </ion-avatar>\r\n\r\n    </ion-col>\r\n    <!-- <ion-col style=\"margin-top: 17px;\" class=\"ion-no-padding\"> -->\r\n      <ion-icon style=\"color: white\" class=\"ion-text-end\" name=\"create-outline\"></ion-icon>\r\n    <!-- </ion-col> -->\r\n    </ion-row>\r\n    <ion-row class=\"center\">\r\n      <ion-col *ngFor=\"let item of userData\">\r\n        <p><b>{{item.user_name}}</b></p>\r\n        <p>{{item.phone_no}}</p>\r\n        <p>{{item.email}}</p>\r\n      </ion-col>\r\n      \r\n    </ion-row>\r\n    <!-- <ion-card>\r\n      <ion-row>\r\n        <ion-col class=\"abc\">\r\n          <ion-icon name=\"star\"></ion-icon>\r\n          <div><p>52</p></div>\r\n        </ion-col>\r\n        <ion-col offset class=\"abc\">\r\n          <ion-icon name=\"logo-codepen\"></ion-icon>\r\n          <div><p>08</p></div>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-card> -->\r\n    <ion-card>\r\n      <ion-row>\r\n        <ion-col><p>Coupons You Have</p></ion-col>\r\n      </ion-row>\r\n    </ion-card>\r\n    <ion-card>\r\n      <ion-row>\r\n        <ion-col><p>Product References 2</p></ion-col>\r\n      </ion-row>\r\n    </ion-card>\r\n  </ion-grid>\r\n</ion-content>\r\n";
       /***/
     },
 
@@ -175,7 +175,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = ".abc {\n  text-align: center;\n  font-size: xx-large;\n}\n\n.ion-no-padding {\n  font-size: xx-large;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1hY2NvdW50L3VzZXItYWNjb3VudC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDSSxrQkFBQTtFQUNBLG1CQUFBO0FBQ0o7O0FBQ0k7RUFDSSxtQkFBQTtBQUVSIiwiZmlsZSI6InNyYy9hcHAvdXNlci1hY2NvdW50L3VzZXItYWNjb3VudC5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuYWJjIHtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgZm9udC1zaXplOiB4eC1sYXJnZTtcbiAgICB9XG4gICAgLmlvbi1uby1wYWRkaW5ne1xuICAgICAgICBmb250LXNpemU6eHgtbGFyZ2U7XG4gICAgfSJdfQ== */";
+      __webpack_exports__["default"] = ".center {\n  text-align: center;\n  color: white;\n}\n\n.image-center {\n  margin: 0 auto;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1hY2NvdW50L3VzZXItYWNjb3VudC5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBT0E7RUFDSSxrQkFBQTtFQUNBLFlBQUE7QUFOSjs7QUFRQTtFQUNJLGNBQUE7QUFMSiIsImZpbGUiOiJzcmMvYXBwL3VzZXItYWNjb3VudC91c2VyLWFjY291bnQucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gLmFiYyB7XHJcbi8vICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbi8vICAgICBmb250LXNpemU6IHh4LWxhcmdlO1xyXG4vLyAgICAgfVxyXG4vLyAgICAgLmlvbi1uby1wYWRkaW5ne1xyXG4vLyAgICAgICAgIGZvbnQtc2l6ZTp4eC1sYXJnZTtcclxuLy8gICAgIH1cclxuLmNlbnRlciB7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbn1cclxuLmltYWdlLWNlbnRlcntcclxuICAgIG1hcmdpbjowIGF1dG87XHJcbn0iXX0= */";
       /***/
     },
 
@@ -213,15 +213,23 @@
       /* harmony import */
 
 
-      var _api_service_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+      /*! @angular/router */
+      "./node_modules/@angular/router/__ivy_ngcc__/fesm2015/router.js");
+      /* harmony import */
+
+
+      var _api_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ../api-service.service */
       "./src/app/api-service.service.ts");
 
       var UserAccountPage = /*#__PURE__*/function () {
-        function UserAccountPage(apiServiceService) {
+        function UserAccountPage(apiServiceService, route) {
           _classCallCheck(this, UserAccountPage);
 
           this.apiServiceService = apiServiceService;
+          this.route = route;
+          this.user_id = this.route.snapshot.paramMap.get('user_id');
         }
 
         _createClass(UserAccountPage, [{
@@ -234,14 +242,11 @@
           value: function getUserData() {
             var _this = this;
 
-            this.user_id = 59;
             this.apiServiceService.getUserDetails(this.user_id).subscribe(function (res) {
-              console.log(res[0].user_name);
+              console.log(res);
 
               if (res) {
-                _this.name = res[0].user_name;
-                _this.email = res[0].email;
-                _this.phone_no = res[0].phone_no;
+                _this.userData = res.user_details;
               }
             });
           }
@@ -252,7 +257,9 @@
 
       UserAccountPage.ctorParameters = function () {
         return [{
-          type: _api_service_service__WEBPACK_IMPORTED_MODULE_2__["ApiServiceService"]
+          type: _api_service_service__WEBPACK_IMPORTED_MODULE_3__["ApiServiceService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }];
       };
 

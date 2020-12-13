@@ -1,11 +1,11 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
-      "id": "cordova-plugin-statusbar.statusbar",
-      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-      "pluginId": "cordova-plugin-statusbar",
+      "id": "com.razorpay.cordova.RazorpayCheckout",
+      "file": "plugins/com.razorpay.cordova/www/RazorpayCheckout.js",
+      "pluginId": "com.razorpay.cordova",
       "clobbers": [
-        "window.StatusBar"
+        "RazorpayCheckout"
       ]
     },
     {
@@ -17,11 +17,11 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-splashscreen.SplashScreen",
-      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
-      "pluginId": "cordova-plugin-splashscreen",
+      "id": "cordova-plugin-ionic-keyboard.keyboard",
+      "file": "plugins/cordova-plugin-ionic-keyboard/www/ios/keyboard.js",
+      "pluginId": "cordova-plugin-ionic-keyboard",
       "clobbers": [
-        "navigator.splashscreen"
+        "window.Keyboard"
       ]
     },
     {
@@ -41,11 +41,19 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-ionic-keyboard.keyboard",
-      "file": "plugins/cordova-plugin-ionic-keyboard/www/ios/keyboard.js",
-      "pluginId": "cordova-plugin-ionic-keyboard",
+      "id": "cordova-plugin-splashscreen.SplashScreen",
+      "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+      "pluginId": "cordova-plugin-splashscreen",
       "clobbers": [
-        "window.Keyboard"
+        "navigator.splashscreen"
+      ]
+    },
+    {
+      "id": "cordova-plugin-statusbar.statusbar",
+      "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+      "pluginId": "cordova-plugin-statusbar",
+      "clobbers": [
+        "window.StatusBar"
       ]
     },
     {
@@ -61,28 +69,20 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.plugins.socialsharing"
       ]
-    },
-    {
-      "id": "com.razorpay.cordova.RazorpayCheckout",
-      "file": "plugins/com.razorpay.cordova/www/RazorpayCheckout.js",
-      "pluginId": "com.razorpay.cordova",
-      "clobbers": [
-        "RazorpayCheckout"
-      ]
     }
   ];
   module.exports.metadata = {
-    "cordova-plugin-whitelist": "1.3.3",
-    "cordova-plugin-statusbar": "2.4.2",
-    "cordova-plugin-device": "2.0.2",
-    "cordova-plugin-splashscreen": "5.0.2",
-    "cordova-plugin-ionic-webview": "4.2.1",
-    "cordova-plugin-ionic-keyboard": "2.2.0",
-    "es6-promise-plugin": "4.2.2",
-    "cordova-plugin-x-socialsharing": "6.0.2",
     "cordova-plugin-cocoapod-support": "1.6.2",
     "com.razorpay.cordova": "0.16.1",
     "cordova-plugin-androidx": "3.0.0",
-    "cordova-plugin-androidx-adapter": "1.1.3"
+    "cordova-plugin-androidx-adapter": "1.1.3",
+    "cordova-plugin-device": "2.0.2",
+    "cordova-plugin-ionic-keyboard": "2.2.0",
+    "cordova-plugin-ionic-webview": "4.2.1",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-statusbar": "2.4.2",
+    "cordova-plugin-whitelist": "1.3.3",
+    "es6-promise-plugin": "4.2.2",
+    "cordova-plugin-x-socialsharing": "6.0.2"
   };
 });

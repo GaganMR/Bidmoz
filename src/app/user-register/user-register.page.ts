@@ -85,7 +85,10 @@ export class UserRegisterPage implements OnInit {
           loading.dismiss();
           this.showAlertController("Registration failed!", res.Message);
         }
-      }    
+      } else {
+        loading.dismiss();
+        this.showAlertController("Registration failed!", "Registration failed, please try again later.");
+      }   
     })
 
   }
@@ -107,7 +110,7 @@ export class UserRegisterPage implements OnInit {
     } 
   }
 
-  SubmitOtPForm() {
+  async SubmitOtPForm() {
     console.log(this.verifyOtpForm.value.otp, this.userData);
     let user = {
       user_id: this.userData.user_id,
@@ -115,10 +118,26 @@ export class UserRegisterPage implements OnInit {
     }
     console.log(user);
     if(this.userData.otp == this.verifyOtpForm.value.otp){
-      this.apiServiceService.verifyOTP(user).subscribe((res:any)=>{
+
+      const loading = await this.loadingController.create({
+        message: 'Loading...'
+      });
+      await loading.present();
+      await this.apiServiceService.verifyOTP(user).subscribe((res:any)=>{
         console.log(res);
-        localStorage.setItem('userData', JSON.stringify(res));
-        this.routes.navigate(['current-sessions']);
+        if(res){
+          if(res.status === "Success"){
+            localStorage.setItem('userData', JSON.stringify(res));
+            loading.dismiss();
+            this.routes.navigate(['current-sessions']);
+          } else {
+            this.showAlertController("OTP!", "OTP varification failed!");
+            loading.dismiss();
+          }
+        }else {
+          loading.dismiss();
+          this.showAlertController("OTP!", "OTP varification failed, please try again later.");
+        }  
       })
     }
   }

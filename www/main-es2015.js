@@ -270,7 +270,7 @@ module.exports = webpackAsyncContext;
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<ion-app>\r\n  <ion-router-outlet></ion-router-outlet>\r\n</ion-app>\r\n");
 
 /***/ }),
 
@@ -313,11 +313,7 @@ const routes = [
         loadChildren: () => Promise.all(/*! import() | bid-plans-bid-plans-module */[__webpack_require__.e("common"), __webpack_require__.e("bid-plans-bid-plans-module")]).then(__webpack_require__.bind(null, /*! ./bid-plans/bid-plans.module */ "./src/app/bid-plans/bid-plans.module.ts")).then(m => m.BidPlansPageModule)
     },
     {
-        path: 'featured-product',
-        loadChildren: () => Promise.all(/*! import() | featured-product-featured-product-module */[__webpack_require__.e("common"), __webpack_require__.e("featured-product-featured-product-module")]).then(__webpack_require__.bind(null, /*! ./featured-product/featured-product.module */ "./src/app/featured-product/featured-product.module.ts")).then(m => m.FeaturedProductPageModule)
-    },
-    {
-        path: 'user-account',
+        path: 'user-account/:user_id',
         loadChildren: () => Promise.all(/*! import() | user-account-user-account-module */[__webpack_require__.e("common"), __webpack_require__.e("user-account-user-account-module")]).then(__webpack_require__.bind(null, /*! ./user-account/user-account.module */ "./src/app/user-account/user-account.module.ts")).then(m => m.UserAccountPageModule)
     },
     {
@@ -325,7 +321,7 @@ const routes = [
         loadChildren: () => __webpack_require__.e(/*! import() | coupon-purchase-coupon-purchase-module */ "coupon-purchase-coupon-purchase-module").then(__webpack_require__.bind(null, /*! ./coupon-purchase/coupon-purchase.module */ "./src/app/coupon-purchase/coupon-purchase.module.ts")).then(m => m.CouponPurchasePageModule)
     },
     {
-        path: 'feature-product-details/:featured_product_id/:product_id',
+        path: 'feature-product-details',
         loadChildren: () => Promise.all(/*! import() | feature-product-details-feature-product-details-module */[__webpack_require__.e("common"), __webpack_require__.e("feature-product-details-feature-product-details-module")]).then(__webpack_require__.bind(null, /*! ./feature-product-details/feature-product-details.module */ "./src/app/feature-product-details/feature-product-details.module.ts")).then(m => m.FeatureProductDetailsPageModule)
     },
     {
@@ -340,6 +336,18 @@ const routes = [
         path: 'coupon-details/:coupon_id',
         loadChildren: () => Promise.all(/*! import() | coupon-details-coupon-details-module */[__webpack_require__.e("common"), __webpack_require__.e("coupon-details-coupon-details-module")]).then(__webpack_require__.bind(null, /*! ./coupon-details/coupon-details.module */ "./src/app/coupon-details/coupon-details.module.ts")).then(m => m.CouponDetailsPageModule)
     },
+    {
+        path: 'upcomming-session-details/:session_id',
+        loadChildren: () => Promise.all(/*! import() | upcomming-session-details-upcomming-session-details-module */[__webpack_require__.e("common"), __webpack_require__.e("upcomming-session-details-upcomming-session-details-module")]).then(__webpack_require__.bind(null, /*! ./upcomming-session-details/upcomming-session-details.module */ "./src/app/upcomming-session-details/upcomming-session-details.module.ts")).then(m => m.UpcommingSessionDetailsPageModule)
+    },
+    {
+        path: 'current-sessions',
+        loadChildren: () => Promise.all(/*! import() | current-sessions-current-sessions-module */[__webpack_require__.e("common"), __webpack_require__.e("current-sessions-current-sessions-module")]).then(__webpack_require__.bind(null, /*! ./current-sessions/current-sessions.module */ "./src/app/current-sessions/current-sessions.module.ts")).then(m => m.CurrentSessionsPageModule)
+    },
+    {
+        path: 'featured-product-list',
+        loadChildren: () => Promise.all(/*! import() | featured-product-list-featured-product-list-module */[__webpack_require__.e("common"), __webpack_require__.e("featured-product-list-featured-product-list-module")]).then(__webpack_require__.bind(null, /*! ./featured-product-list/featured-product-list.module */ "./src/app/featured-product-list/featured-product-list.module.ts")).then(m => m.FeaturedProductListPageModule)
+    }
 ];
 let AppRoutingModule = class AppRoutingModule {
 };

@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-title>Coupon details</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div></div>\n  <ion-grid>\n    <ion-row>\n      <ion-col class=\"ion-text-justify\">\n        <p>Valid Only for 24 hrs</p>\n        <p>Coupon Price depends upon product category</p>\n      <p>Can be used only once for a product, connot be used for other product. But once used for a product, the product can be bid any no of times</p>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n<ion-footer no-shadow>\n  <ion-toolbar position=\"bottom\">\n    <ion-button  slot=\"end\" (click)=\"payWithRazorpay()\">Purchase Coupon</ion-button>\n  </ion-toolbar>\n</ion-footer>";
+      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar color=\"featured\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"/bid-plans\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Coupon details</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <div></div>\r\n  <ion-grid>\r\n    <ion-row>\r\n      <ion-col class=\"ion-text-justify\">\r\n        <p>Valid Only for 24 hrs</p>\r\n        <p>Coupon Price depends upon product category</p>\r\n      <p>Can be used only once for a product, connot be used for other product. But once used for a product, the product can be bid any no of times</p>\r\n      </ion-col>\r\n    </ion-row>\r\n  </ion-grid>\r\n</ion-content>\r\n<ion-footer no-shadow>\r\n  <ion-toolbar color=\"featured\" position=\"bottom\">\r\n    <ion-button  color=\"custom-button\" slot=\"end\" (click)=\"payWithRazorpay()\">Purchase Coupon</ion-button>\r\n  </ion-toolbar>\r\n</ion-footer>";
       /***/
     },
 
@@ -175,7 +175,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvdXBvbi1kZXRhaWxzL2NvdXBvbi1kZXRhaWxzLnBhZ2Uuc2NzcyJ9 */";
+      __webpack_exports__["default"] = "p {\n  color: white;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY291cG9uLWRldGFpbHMvY291cG9uLWRldGFpbHMucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0ksWUFBQTtBQUNKIiwiZmlsZSI6InNyYy9hcHAvY291cG9uLWRldGFpbHMvY291cG9uLWRldGFpbHMucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsicHtcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxufSJdfQ== */";
       /***/
     },
 
@@ -222,12 +222,21 @@
       var _api_service_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
       /*! ../api-service.service */
       "./src/app/api-service.service.ts");
+      /* harmony import */
+
+
+      var _ionic_angular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+      /*! @ionic/angular */
+      "./node_modules/@ionic/angular/__ivy_ngcc__/fesm2015/ionic-angular.js");
 
       var CouponDetailsPage = /*#__PURE__*/function () {
-        function CouponDetailsPage(apiServiceService, route) {
+        function CouponDetailsPage(apiServiceService, routes, loadingController, alertController, route) {
           _classCallCheck(this, CouponDetailsPage);
 
           this.apiServiceService = apiServiceService;
+          this.routes = routes;
+          this.loadingController = loadingController;
+          this.alertController = alertController;
           this.route = route;
           this.coupon_id = this.route.snapshot.paramMap.get('coupon_id');
         }
@@ -238,13 +247,147 @@
         }, {
           key: "payWithRazorpay",
           value: function payWithRazorpay() {
-            this.userDetails = JSON.parse(localStorage.getItem('userData'));
-            var generateCouponPurchaseOrderData = {
-              coupon_id: this.coupon_id,
-              user_id: this.userDetails.user_details[0].user_id
-            };
-            this.apiServiceService.generateCouponPurchaseOrder(generateCouponPurchaseOrderData).subscribe(function (result) {
-              console.log(result);
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+              var _this = this;
+
+              var generateCouponPurchaseOrderData, loading;
+              return regeneratorRuntime.wrap(function _callee$(_context) {
+                while (1) {
+                  switch (_context.prev = _context.next) {
+                    case 0:
+                      this.userDetails = JSON.parse(localStorage.getItem('userData'));
+                      generateCouponPurchaseOrderData = {
+                        coupon_id: this.coupon_id,
+                        user_id: this.userDetails.user_details[0].user_id
+                      };
+                      _context.next = 4;
+                      return this.loadingController.create({
+                        message: 'Please wait...'
+                      });
+
+                    case 4:
+                      loading = _context.sent;
+                      _context.next = 7;
+                      return loading.present();
+
+                    case 7:
+                      _context.next = 9;
+                      return this.apiServiceService.generateCouponPurchaseOrder(generateCouponPurchaseOrderData).subscribe(function (result) {
+                        console.log(result);
+                        var options = {
+                          description: result.description,
+                          // order_id: result.order_id,
+                          currency: result.currency,
+                          key: result.key,
+                          amount: result.amount,
+                          name: 'Bidmoz',
+                          prefill: {
+                            email: _this.userDetails.user_details[0].email,
+                            contact: _this.userDetails.user_details[0].phone_no,
+                            name: _this.userDetails.user_details[0].user_id
+                          },
+                          theme: {
+                            color: "#222428"
+                          }
+                        };
+
+                        var successCallback = function successCallback(success) {
+                          // alert('payment_id: ' + success.razorpay_payment_id)
+                          // var razorpay_payment_id = success.razorpay_payment_id
+                          // var razorpay_order_id = success.razorpay_order_id
+                          // var razorpay_signature = success.razorpay_signature
+                          loading.dismiss();
+                          this.updateCouponPaymentDetails(result.payment_details_id, "Payment Completed", success.razorpay_payment_id, success.razorpay_order_id, success.razorpay_signature, "Payment Completed");
+                        };
+
+                        var cancelCallback = function cancelCallback(error) {
+                          alert(error.description + ' (Error ' + error.code + ')');
+                          loading.dismiss();
+                        };
+
+                        RazorpayCheckout.on('payment.success', successCallback);
+                        RazorpayCheckout.on('payment.cancel', cancelCallback);
+                        RazorpayCheckout.open(options, successCallback, cancelCallback); // console.log(this.RazorpayCheckout);
+                      });
+
+                    case 9:
+                    case "end":
+                      return _context.stop();
+                  }
+                }
+              }, _callee, this);
+            }));
+          }
+        }, {
+          key: "updateCouponPaymentDetails",
+          value: function updateCouponPaymentDetails(payment_details_id, payment_status, razorpay_payment_id, razorpay_order_id, razorpay_signature, remarks) {
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+              var _this2 = this;
+
+              var couponPaymentDetails, loading;
+              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                while (1) {
+                  switch (_context2.prev = _context2.next) {
+                    case 0:
+                      couponPaymentDetails = {
+                        user_id: this.userDetails.user_details[0].user_id,
+                        coupon_id: this.coupon_id,
+                        payment_details_id: payment_details_id,
+                        razorpay_payment_id: razorpay_payment_id,
+                        razorpay_order_id: razorpay_order_id,
+                        razorpay_signature: razorpay_signature,
+                        payment_status: payment_status
+                      };
+                      _context2.next = 3;
+                      return this.loadingController.create({
+                        message: 'Updating payment details...'
+                      });
+
+                    case 3:
+                      loading = _context2.sent;
+                      _context2.next = 6;
+                      return loading.present();
+
+                    case 6:
+                      _context2.next = 8;
+                      return this.apiServiceService.updateCouponPaymentDetails(couponPaymentDetails).subscribe(function (res) {
+                        if (res) {
+                          if (res.status === "Success") {
+                            localStorage.removeItem('userData');
+                            localStorage.setItem('userData', JSON.stringify(res));
+                            loading.dismiss();
+
+                            _this2.routes.navigate(['current-sessions']);
+                          } else {
+                            loading.dismiss();
+
+                            _this2.showAlertController("Coupon update!", "Failed to update user details, please try again later.");
+                          }
+                        } else {
+                          loading.dismiss();
+
+                          _this2.showAlertController("Coupon update!", "Failed to update user details, please try again later.");
+                        }
+                      });
+
+                    case 8:
+                    case "end":
+                      return _context2.stop();
+                  }
+                }
+              }, _callee2, this);
+            }));
+          }
+        }, {
+          key: "showAlertController",
+          value: function showAlertController(sub_header, msg) {
+            this.alertController.create({
+              //header: 'Alert',
+              subHeader: sub_header,
+              message: msg,
+              buttons: ['OK']
+            }).then(function (res) {
+              res.present();
             });
           }
         }]);
@@ -255,6 +398,12 @@
       CouponDetailsPage.ctorParameters = function () {
         return [{
           type: _api_service_service__WEBPACK_IMPORTED_MODULE_3__["ApiServiceService"]
+        }, {
+          type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["LoadingController"]
+        }, {
+          type: _ionic_angular__WEBPACK_IMPORTED_MODULE_4__["AlertController"]
         }, {
           type: _angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"]
         }];

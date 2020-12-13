@@ -133,7 +133,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-app>\n  <ion-router-outlet></ion-router-outlet>\n</ion-app>\n";
+      __webpack_exports__["default"] = "<ion-app>\r\n  <ion-router-outlet></ion-router-outlet>\r\n</ion-app>\r\n";
       /***/
     },
 
@@ -224,18 +224,7 @@
           });
         }
       }, {
-        path: 'featured-product',
-        loadChildren: function loadChildren() {
-          return Promise.all(
-          /*! import() | featured-product-featured-product-module */
-          [__webpack_require__.e("common"), __webpack_require__.e("featured-product-featured-product-module")]).then(__webpack_require__.bind(null,
-          /*! ./featured-product/featured-product.module */
-          "./src/app/featured-product/featured-product.module.ts")).then(function (m) {
-            return m.FeaturedProductPageModule;
-          });
-        }
-      }, {
-        path: 'user-account',
+        path: 'user-account/:user_id',
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | user-account-user-account-module */
@@ -257,7 +246,7 @@
           });
         }
       }, {
-        path: 'feature-product-details/:featured_product_id/:product_id',
+        path: 'feature-product-details',
         loadChildren: function loadChildren() {
           return Promise.all(
           /*! import() | feature-product-details-feature-product-details-module */
@@ -298,6 +287,39 @@
           /*! ./coupon-details/coupon-details.module */
           "./src/app/coupon-details/coupon-details.module.ts")).then(function (m) {
             return m.CouponDetailsPageModule;
+          });
+        }
+      }, {
+        path: 'upcomming-session-details/:session_id',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | upcomming-session-details-upcomming-session-details-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("upcomming-session-details-upcomming-session-details-module")]).then(__webpack_require__.bind(null,
+          /*! ./upcomming-session-details/upcomming-session-details.module */
+          "./src/app/upcomming-session-details/upcomming-session-details.module.ts")).then(function (m) {
+            return m.UpcommingSessionDetailsPageModule;
+          });
+        }
+      }, {
+        path: 'current-sessions',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | current-sessions-current-sessions-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("current-sessions-current-sessions-module")]).then(__webpack_require__.bind(null,
+          /*! ./current-sessions/current-sessions.module */
+          "./src/app/current-sessions/current-sessions.module.ts")).then(function (m) {
+            return m.CurrentSessionsPageModule;
+          });
+        }
+      }, {
+        path: 'featured-product-list',
+        loadChildren: function loadChildren() {
+          return Promise.all(
+          /*! import() | featured-product-list-featured-product-list-module */
+          [__webpack_require__.e("common"), __webpack_require__.e("featured-product-list-featured-product-list-module")]).then(__webpack_require__.bind(null,
+          /*! ./featured-product-list/featured-product-list.module */
+          "./src/app/featured-product-list/featured-product-list.module.ts")).then(function (m) {
+            return m.FeaturedProductListPageModule;
           });
         }
       }];

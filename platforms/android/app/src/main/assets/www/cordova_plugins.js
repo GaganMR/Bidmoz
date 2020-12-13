@@ -1,6 +1,14 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
   module.exports = [
     {
+      "id": "com.razorpay.cordova.RazorpayCheckout",
+      "file": "plugins/com.razorpay.cordova/www/RazorpayCheckout.js",
+      "pluginId": "com.razorpay.cordova",
+      "clobbers": [
+        "RazorpayCheckout"
+      ]
+    },
+    {
       "id": "cordova-plugin-device.device",
       "file": "plugins/cordova-plugin-device/www/device.js",
       "pluginId": "cordova-plugin-device",
@@ -53,17 +61,12 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "window.plugins.socialsharing"
       ]
-    },
-    {
-      "id": "com.razorpay.cordova.RazorpayCheckout",
-      "file": "plugins/com.razorpay.cordova/www/RazorpayCheckout.js",
-      "pluginId": "com.razorpay.cordova",
-      "clobbers": [
-        "RazorpayCheckout"
-      ]
     }
   ];
   module.exports.metadata = {
+    "com.razorpay.cordova": "0.16.1",
+    "cordova-plugin-androidx-adapter": "1.1.3",
+    "cordova-plugin-cocoapod-support": "1.6.2",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-ionic-keyboard": "2.2.0",
     "cordova-plugin-ionic-webview": "4.2.1",
@@ -71,8 +74,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3",
     "es6-promise-plugin": "4.2.2",
-    "cordova-plugin-x-socialsharing": "6.0.2",
-    "com.razorpay.cordova": "0.16.1",
-    "cordova-plugin-androidx-adapter": "1.1.3"
+    "cordova-plugin-x-socialsharing": "6.0.2"
   };
 });

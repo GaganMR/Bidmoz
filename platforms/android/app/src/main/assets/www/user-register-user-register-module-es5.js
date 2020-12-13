@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar color=\"primary\" >\n    <!-- class=\"ion-text-center\" -->\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"/home\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>User Register</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <!-- <div style=\"height: 80%; display: flex; align-items: center; justify-content: center;\"> -->\n  <ion-card class=\"container\" *ngIf=\"!isRegistered\">\n    <ion-card-content>\n      <form [formGroup]=\"ionicUserRegisterForm\" (ngSubmit)=\"submitForm()\" novalidate>\n        <ion-item lines=\"full\">\n          <ion-label position=\"floating\">Name</ion-label>\n          <ion-input formControlName=\"user_name\" type=\"text\" required></ion-input>\n        </ion-item>\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.user_name.errors?.required\">\n          Name is required.\n        </span>\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.user_name.errors?.minlength\">\n          Name should be min 2 chars long.\n        </span>\n        <ion-item lines=\"full\">\n          <ion-label position=\"floating\">Phone No</ion-label>\n          <ion-input maxlength=\"10\" formControlName=\"phone_no\" type=\"text\" required></ion-input>\n        </ion-item>\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.phone_no.errors?.required\">\n          Mobile number is required.\n        </span>\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.phone_no.errors?.pattern\">\n          Only numerical values allowed.\n        </span>\n        <ion-item lines=\"full\">\n          <ion-label position=\"floating\">Email</ion-label>\n          <ion-input formControlName=\"email\" type=\"email\" required></ion-input>\n        </ion-item>\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.email.errors?.required\">\n          Email is required.\n        </span>\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.email.errors?.pattern\">\n          Please provide valid email id.\n        </span>\n        <ion-row>\n          <ion-col>\n            <ion-button type=\"submit\" color=\"primary\" expand=\"block\">Submit</ion-button>\n          </ion-col>\n        </ion-row>\n      </form>\n    </ion-card-content>\n  </ion-card>\n  <ion-card class=\"container\" *ngIf=\"isRegistered\">\n    <ion-card-content>\n      <form [formGroup]=\"verifyOtpForm\" (ngSubmit)=\"SubmitOtPForm()\">\n          <p style=\"text-align: center;\">Please enter one time verification code sent to +91{{userData.phone_no}}</p>\n      <ion-grid>\n        <ion-row>\n          <ion-col>\n            <ion-item >\n              <ion-input type=\"text\" placeholder=\"Enter Otp\" maxlength=\"4\" formControlName=\"otp\"></ion-input>\n            </ion-item>\n          </ion-col>\n          <!--  <ion-col>\n            <ion-item >\n              <ion-input type=\"tel\" placeholder=\"*\" maxlength=\"1\" [(ngModel)] =\"OTP.first\" #otp1  (keyup)=\"otpController($event,otp2,'')\"  ></ion-input>\n            </ion-item>\n          </ion-col>\n           <ion-col >\n            <ion-item>\n              <ion-input type=\"tel\" placeholder=\"*\" maxlength=\"1\" [(ngModel)] =\"OTP.second\"#otp2 (keyup)=\"otpController($event,otp3,otp1)\" ></ion-input>\n            </ion-item>\n          </ion-col>\n          <ion-col >\n            <ion-item>\n              <ion-input type=\"tel\" placeholder=\"*\" maxlength=\"1\" #otp3 [(ngModel)] =\"OTP.third\" (keyup)=\"otpController($event,otp4,otp2)\" ></ion-input>\n            </ion-item>\n          </ion-col>\n          <ion-col >\n            <ion-item>\n              <ion-input type=\"tel\" placeholder=\"*\" maxlength=\"1\" #otp4 [(ngModel)] =\"OTP.forth\" (keyup)=\"otpController($event,'',otp3)\"></ion-input>\n            </ion-item>\n          </ion-col> -->\n        </ion-row>\n        <ion-row>\n          <ion-col>\n            <ion-button type=\"submit\" color=\"primary\" expand=\"block\">Submit</ion-button>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n      </form>\n    </ion-card-content>\n  </ion-card>\n<!-- </div> -->\n</ion-content>\n<!-- <ion-footer no-shadow>\n\t<ion-toolbar position=\"bottom\">\n    <ion-row>\n      <ion-col>\n    <ion-button type=\"submit\" slot=\"end\" [routerLink]=\"['/terms-and-condtions']\">Continue<ion-icon name=\"chevron-forward-outline\"></ion-icon></ion-button>\n    </ion-col>\n    </ion-row>\n\t</ion-toolbar>\n</ion-footer> -->\n<!-- expand=\"block\" slot=\"end\" -->\n\n\n    <!-- <ion-row text-center>\n        <ion-col>\n         <ion-input #otp1 required maxLength=\"1\" (keyup)=\"otpController($event,otp2,'')\">\n         </ion-input>\n         <ion-input #otp2 required maxLength=\"1\" (keyup)=\"otpController($event,otp3,otp1)\">\n         </ion-input>\n         <ion-input #otp3 required maxLength=\"1\" (keyup)=\"otpController($event,otp4,otp2)\">\n         </ion-input>\n         <ion-input #otp4  required maxLength=\"1\" (keyup)=\"otpController($event,'',otp3)\">\n         </ion-input>\n        </ion-col>\n      </ion-row> -->\n";
+      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar color=\"featured\" >\r\n    <!-- class=\"ion-text-center\" -->\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"/home\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>User Register</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n  <ion-header class=\"ion-no-border\">\r\n    <ion-toolbar>\r\n      <h1  class=\"ion-text-center\"><b>BIDMOZ</b></h1>\r\n    </ion-toolbar>\r\n  </ion-header>\r\n  <div class=\"container\">\r\n  <ion-card  *ngIf=\"!isRegistered\">\r\n    <ion-card-content>\r\n      <form [formGroup]=\"ionicUserRegisterForm\" (ngSubmit)=\"submitForm()\" novalidate>\r\n        <ion-item lines=\"full\">\r\n          <ion-label position=\"floating\">Name</ion-label>\r\n          <ion-input formControlName=\"user_name\" type=\"text\" required></ion-input>\r\n        </ion-item>\r\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.user_name.errors?.required\">\r\n          Name is required.\r\n        </span>\r\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.user_name.errors?.minlength\">\r\n          Name should be min 2 chars long.\r\n        </span>\r\n        <ion-item lines=\"full\">\r\n          <ion-label position=\"floating\">Phone Number</ion-label>\r\n          <ion-input maxlength=\"10\" formControlName=\"phone_no\" type=\"text\" required></ion-input>\r\n        </ion-item>\r\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.phone_no.errors?.required\">\r\n          Phone number is required.\r\n        </span>\r\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.phone_no.errors?.pattern\">\r\n          Valid phone number is required.\r\n        </span>\r\n        <ion-item lines=\"full\">\r\n          <ion-label position=\"floating\">Email</ion-label>\r\n          <ion-input formControlName=\"email\" type=\"email\" required></ion-input>\r\n        </ion-item>\r\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.email.errors?.required\">\r\n          Email is required.\r\n        </span>\r\n        <span class=\"error ion-padding\" *ngIf=\"isSubmitted && errorControl.email.errors?.pattern\">\r\n          Please provide valid email id.\r\n        </span>\r\n        <ion-row>\r\n          <ion-col>\r\n            <ion-button type=\"submit\" color=\"primary\" expand=\"block\">Submit</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </form>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  <ion-card *ngIf=\"isRegistered\">\r\n    <ion-card-content>\r\n      <form [formGroup]=\"verifyOtpForm\" (ngSubmit)=\"SubmitOtPForm()\">\r\n          <p style=\"text-align: center;\">Please enter one time verification code sent to +91{{userData.phone_no}}</p>\r\n      <ion-grid>\r\n        <ion-row>\r\n          <ion-col>\r\n            <ion-item >\r\n              <ion-input type=\"text\" placeholder=\"Enter Otp\" maxlength=\"4\" formControlName=\"otp\"></ion-input>\r\n            </ion-item>\r\n          </ion-col>\r\n          <!--  <ion-col>\r\n            <ion-item >\r\n              <ion-input type=\"tel\" placeholder=\"*\" maxlength=\"1\" [(ngModel)] =\"OTP.first\" #otp1  (keyup)=\"otpController($event,otp2,'')\"  ></ion-input>\r\n            </ion-item>\r\n          </ion-col>\r\n           <ion-col >\r\n            <ion-item>\r\n              <ion-input type=\"tel\" placeholder=\"*\" maxlength=\"1\" [(ngModel)] =\"OTP.second\"#otp2 (keyup)=\"otpController($event,otp3,otp1)\" ></ion-input>\r\n            </ion-item>\r\n          </ion-col>\r\n          <ion-col >\r\n            <ion-item>\r\n              <ion-input type=\"tel\" placeholder=\"*\" maxlength=\"1\" #otp3 [(ngModel)] =\"OTP.third\" (keyup)=\"otpController($event,otp4,otp2)\" ></ion-input>\r\n            </ion-item>\r\n          </ion-col>\r\n          <ion-col >\r\n            <ion-item>\r\n              <ion-input type=\"tel\" placeholder=\"*\" maxlength=\"1\" #otp4 [(ngModel)] =\"OTP.forth\" (keyup)=\"otpController($event,'',otp3)\"></ion-input>\r\n            </ion-item>\r\n          </ion-col> -->\r\n        </ion-row>\r\n        <ion-row>\r\n          <ion-col>\r\n            <ion-button type=\"submit\" color=\"primary\" expand=\"block\">Submit</ion-button>\r\n          </ion-col>\r\n        </ion-row>\r\n      </ion-grid>\r\n      </form>\r\n    </ion-card-content>\r\n  </ion-card>\r\n  </div>\r\n</ion-content>\r\n<!-- <ion-footer no-shadow>\r\n\t<ion-toolbar position=\"bottom\">\r\n    <ion-row>\r\n      <ion-col>\r\n    <ion-button type=\"submit\" slot=\"end\" [routerLink]=\"['/terms-and-condtions']\">Continue<ion-icon name=\"chevron-forward-outline\"></ion-icon></ion-button>\r\n    </ion-col>\r\n    </ion-row>\r\n\t</ion-toolbar>\r\n</ion-footer> -->\r\n<!-- expand=\"block\" slot=\"end\" -->\r\n\r\n\r\n    <!-- <ion-row text-center>\r\n        <ion-col>\r\n         <ion-input #otp1 required maxLength=\"1\" (keyup)=\"otpController($event,otp2,'')\">\r\n         </ion-input>\r\n         <ion-input #otp2 required maxLength=\"1\" (keyup)=\"otpController($event,otp3,otp1)\">\r\n         </ion-input>\r\n         <ion-input #otp3 required maxLength=\"1\" (keyup)=\"otpController($event,otp4,otp2)\">\r\n         </ion-input>\r\n         <ion-input #otp4  required maxLength=\"1\" (keyup)=\"otpController($event,'',otp3)\">\r\n         </ion-input>\r\n        </ion-col>\r\n      </ion-row> -->\r\n";
       /***/
     },
 
@@ -175,7 +175,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = ".container {\n  top: 22%;\n  --ion-background-color: white;\n}\n\nion-content {\n  --ion-background-color:#EBEBF5;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1yZWdpc3Rlci91c2VyLXJlZ2lzdGVyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLFFBQUE7RUFDQSw2QkFBQTtBQUNKOztBQUNBO0VBQ0ksOEJBQUE7QUFFSiIsImZpbGUiOiJzcmMvYXBwL3VzZXItcmVnaXN0ZXIvdXNlci1yZWdpc3Rlci5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuY29udGFpbmVyIHtcbiAgICB0b3A6IDIyJTtcbiAgICAtLWlvbi1iYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcbn1cbmlvbi1jb250ZW50e1xuICAgIC0taW9uLWJhY2tncm91bmQtY29sb3I6I0VCRUJGNTtcbiAgfVxuXG5cbi8vICAgaW9uLWlucHV0e1xuLy8gICAgIGRpc3BsYXk6aW5saW5lLWJsb2NrO1xuLy8gICAgIHdpZHRoOjUwcHg7XG4vLyAgICAgaGVpZ2h0OjUwcHg7XG4vLyAgICAgbWFyZ2luOjEwcHg7XG4vLyAgICAgYm9yZGVyLXJhZGl1czogNTAlO1xuLy8gICAgIC0tYmFja2dyb3VuZDojZTFlMWUxO1xuLy8gICAgIC0tcGFkZGluZy1zdGFydDo3cHg7XG4vLyAgICAgfSJdfQ== */";
+      __webpack_exports__["default"] = ".container {\n  margin-top: 10%;\n}\n\n.ion-text-center {\n  color: white;\n  margin-top: 25%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvdXNlci1yZWdpc3Rlci91c2VyLXJlZ2lzdGVyLnBhZ2Uuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNJLGVBQUE7QUFDSjs7QUFjQTtFQUNJLFlBQUE7RUFDQSxlQUFBO0FBWEoiLCJmaWxlIjoic3JjL2FwcC91c2VyLXJlZ2lzdGVyL3VzZXItcmVnaXN0ZXIucGFnZS5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNvbnRhaW5lciB7XHJcbiAgICBtYXJnaW4tdG9wOiAxMCU7XHJcbn1cclxuXHJcblxyXG4vLyAgIGlvbi1pbnB1dHtcclxuLy8gICAgIGRpc3BsYXk6aW5saW5lLWJsb2NrO1xyXG4vLyAgICAgd2lkdGg6NTBweDtcclxuLy8gICAgIGhlaWdodDo1MHB4O1xyXG4vLyAgICAgbWFyZ2luOjEwcHg7XHJcbi8vICAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbi8vICAgICAtLWJhY2tncm91bmQ6I2UxZTFlMTtcclxuLy8gICAgIC0tcGFkZGluZy1zdGFydDo3cHg7XHJcbi8vICAgICB9XHJcblxyXG5cclxuLmlvbi10ZXh0LWNlbnRlcntcclxuICAgIGNvbG9yOiB3aGl0ZTtcclxuICAgIG1hcmdpbi10b3A6IDI1JTtcclxuICB9Il19 */";
       /***/
     },
 
@@ -329,6 +329,10 @@
 
                             _this.showAlertController("Registration failed!", res.Message);
                           }
+                        } else {
+                          loading.dismiss();
+
+                          _this.showAlertController("Registration failed!", "Registration failed, please try again later.");
                         }
                       });
 
@@ -361,23 +365,66 @@
         }, {
           key: "SubmitOtPForm",
           value: function SubmitOtPForm() {
-            var _this2 = this;
+            return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"])(this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+              var _this2 = this;
 
-            console.log(this.verifyOtpForm.value.otp, this.userData);
-            var user = {
-              user_id: this.userData.user_id,
-              phone_no: this.userData.phone_no
-            };
-            console.log(user);
+              var user, loading;
+              return regeneratorRuntime.wrap(function _callee2$(_context2) {
+                while (1) {
+                  switch (_context2.prev = _context2.next) {
+                    case 0:
+                      console.log(this.verifyOtpForm.value.otp, this.userData);
+                      user = {
+                        user_id: this.userData.user_id,
+                        phone_no: this.userData.phone_no
+                      };
+                      console.log(user);
 
-            if (this.userData.otp == this.verifyOtpForm.value.otp) {
-              this.apiServiceService.verifyOTP(user).subscribe(function (res) {
-                console.log(res);
-                localStorage.setItem('userData', JSON.stringify(res));
+                      if (!(this.userData.otp == this.verifyOtpForm.value.otp)) {
+                        _context2.next = 11;
+                        break;
+                      }
 
-                _this2.routes.navigate(['featured-product']);
-              });
-            }
+                      _context2.next = 6;
+                      return this.loadingController.create({
+                        message: 'Loading...'
+                      });
+
+                    case 6:
+                      loading = _context2.sent;
+                      _context2.next = 9;
+                      return loading.present();
+
+                    case 9:
+                      _context2.next = 11;
+                      return this.apiServiceService.verifyOTP(user).subscribe(function (res) {
+                        console.log(res);
+
+                        if (res) {
+                          if (res.status === "Success") {
+                            localStorage.setItem('userData', JSON.stringify(res));
+                            loading.dismiss();
+
+                            _this2.routes.navigate(['current-sessions']);
+                          } else {
+                            _this2.showAlertController("OTP!", "OTP varification failed!");
+
+                            loading.dismiss();
+                          }
+                        } else {
+                          loading.dismiss();
+
+                          _this2.showAlertController("OTP!", "OTP varification failed, please try again later.");
+                        }
+                      });
+
+                    case 11:
+                    case "end":
+                      return _context2.stop();
+                  }
+                }
+              }, _callee2, this);
+            }));
           }
         }, {
           key: "showAlertController",

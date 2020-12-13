@@ -22,7 +22,7 @@
       /* harmony default export */
 
 
-      __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar color=\"primary\">\n    <ion-buttons slot=\"start\">\n      <ion-back-button defaultHref=\"/home\"></ion-back-button>\n    </ion-buttons>\n    <ion-title>Feature Product Details</ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <ion-card>\n    <!-- <ion-card-header>\n      <ion-card-title >Desktop</ion-card-title>\n    </ion-card-header> -->\n    <ion-card-content>\n      <ion-slides pager>\n        <ion-slide *ngFor=\"let item of productData\">\n          <div class=\"slide\">\n            <h2>{{item.product_name}}</h2>\n            <img\n              class=\"imgHight\"\n              src=\"https://bidmoz.thehereitis.com/bidmoz_app_apis/{{item.product_image_url}}\"\n            />\n          </div>\n        </ion-slide>\n      </ion-slides>\n    <!-- <ion-slides pager style=\"padding-top: 30px\" [options]=\"slideOpts\">\n      <ion-slide >\n        <img  class=\"imgHight\" src=\"../../assets/andrew-neel-cckf4TsHAuw-unsplash.jpg\" />\n      </ion-slide>\n      <ion-slide>\n        <img class=\"imgHight\" src=\"../../assets/t-q-m2zuB8DqwyM-unsplash.jpg\" />\n      </ion-slide>\n      <ion-slide>\n        <img class=\"imgHight\" src=\"../../assets/sora-sagano-WFSap6CIXuw-unsplash.jpg\" />\n      </ion-slide> -->\n    <!-- </ion-slides> -->\n      <!-- Founded in 1829 on an isthmus between Lake Monona and Lake Mendota, Madison was named the capital of the Wisconsin Territory in 1836. -->\n    </ion-card-content>\n  </ion-card>\n</ion-content>\n<ion-footer>\n  <ion-toolbar>\n    <ion-tabs>\n      <ion-tab-bar slot=\"start bottom\">\n        <ion-tab-button  (click)=\"sShare()\">\n          <!-- <ion-label>Music</ion-label> -->\n          <ion-icon name=\"share-social-outline\"></ion-icon>\n          <!-- <ion-icon name=\"person-outline\" [routerLink]=\"['/user-account']\"></ion-icon> -->\n        </ion-tab-button>\n        <ion-tab-button tab=\"blink\" >\n          <ion-icon name=\"git-pull-request-outline\" (click)=\"getFeatureProductDetails()\"></ion-icon>\n        </ion-tab-button>\n      </ion-tab-bar>\n    </ion-tabs>\n  </ion-toolbar>\n</ion-footer>\n\n";
+      __webpack_exports__["default"] = "<ion-header>\r\n  <ion-toolbar color=\"featured\">\r\n    <ion-buttons slot=\"start\">\r\n      <ion-back-button defaultHref=\"/home\"></ion-back-button>\r\n    </ion-buttons>\r\n    <ion-title>Feature Product Details</ion-title>\r\n  </ion-toolbar>\r\n</ion-header>\r\n\r\n<ion-content>\r\n    <ion-grid>\r\n      <ion-row>\r\n        <ion-col size=\"6\" *ngFor=\"let item of featuredProduct\" (click)=\"coupnDetails(item)\">\r\n          <ion-card style=\"border-radius: 10px;\">\r\n              <img height=\"80\" width=\"150\" style=\"padding: 10px;\" src=\"https://bidmoz.thehereitis.com/bidmoz_app_apis/{{item.product_image_url}}\" />\r\n          </ion-card>\r\n        </ion-col>\r\n      </ion-row>\r\n    </ion-grid>\r\n</ion-content>\r\n<ion-footer>\r\n  <ion-toolbar>\r\n    <ion-tabs>\r\n      <ion-tab-bar color=\"featured\" slot=\"start bottom\">\r\n        <ion-tab-button (click)=\"sShare()\">\r\n          <ion-icon name=\"share-social-outline\"></ion-icon>\r\n        </ion-tab-button>\r\n        <ion-tab-button>\r\n          <ion-icon name=\"git-pull-request-outline\" (click)=\"getFeatureProductDetails()\"></ion-icon>\r\n        </ion-tab-button>\r\n      </ion-tab-bar>\r\n    </ion-tabs>\r\n  </ion-toolbar>\r\n</ion-footer>";
       /***/
     },
 
@@ -239,10 +239,6 @@
           this.slideOpts = {
             initialSlide: 1
           };
-          this.featured_product_id = this.route.snapshot.paramMap.get('featured_product_id');
-          this.product_id = this.route.snapshot.paramMap.get('product_id');
-          console.log("featured_product_id", this.featured_product_id);
-          console.log("product_id", this.product_id);
         }
 
         _createClass(FeatureProductDetailsPage, [{
@@ -265,9 +261,9 @@
           value: function getfeatureProduct() {
             var _this = this;
 
-            this.apiServiceService.getfeatureProductDetails(this.product_id).subscribe(function (result) {
+            this.apiServiceService.getFeaturedProduct().subscribe(function (result) {
               console.log(result);
-              _this.productData = result;
+              _this.featuredProduct = result;
             });
           }
         }, {

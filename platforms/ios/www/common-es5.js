@@ -800,7 +800,6 @@
         }, {
           key: "getSessions",
           value: function getSessions() {
-            console.log("getSessions:");
             return this.http.get(this.url + '/sessions.php?method=getCurrentSessions');
           }
         }, {
@@ -843,7 +842,17 @@
           key: "generateCouponPurchaseOrder",
           value: function generateCouponPurchaseOrder(data) {
             console.log(data);
-            return this.http.post(this.url + '/coupons.php?method=generateCouponPurchaseOrder', data);
+            return this.http.post(this.url + '/payments.php?method=generateCouponPurchaseOrder', data);
+          }
+        }, {
+          key: "getUpcommingSessions",
+          value: function getUpcommingSessions() {
+            return this.http.get(this.url + '/sessions.php?method=getUpcomingSessions');
+          }
+        }, {
+          key: "getUpcommingSessionsDetails",
+          value: function getUpcommingSessionsDetails(session_id) {
+            return this.http.get(this.url + "/sessions.php?method=getSessionDetails&session_id=" + session_id);
           }
         }]);
 
