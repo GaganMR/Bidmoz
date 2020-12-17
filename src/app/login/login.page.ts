@@ -84,31 +84,36 @@ export class LoginPage implements OnInit {
     } 
   }
 
-  SubmitOtPForm() {
+  async SubmitOtPForm() {
     //console.log(this.verifyOtpForm.value.otp);
     let user = {
       user_id: this.userData.user_id,
       phone_no: this.userData.phone_no,
     }
-    //console.log(user);
     if(this.userData.otp == this.verifyOtpForm.value.otp){
-      this.verifyOTP(user);
+      
+      const loading = await this.loadingController.create({
+        message: 'Loading...'
+      });
+      await loading.present();
+      await this.apiServiceService.verifyOTP(user).subscribe((res:any)=>{
+        console.log(res);
+        if(res){
+          if(res.status === "Success"){
+            localStorage.setItem('userData', JSON.stringify(res));
+            loading.dismiss();
+            this.routes.navigate(['current-sessions']);
+          } else {
+            this.showAlertController("OTP!", "OTP varification failed!");
+            loading.dismiss();
+          }
+        }else {
+          loading.dismiss();
+          this.showAlertController("OTP!", "OTP varification failed, please try again later.");
+        }  
+      })
+
     }
-  }
-
-  async verifyOTP(user) {
-
-    const loading = await this.loadingController.create({
-      message: 'Loading...'
-    });
-    await loading.present();
-    await this.apiServiceService.verifyOTP(user).subscribe((res:any)=>{
-      console.log(res);
-      localStorage.setItem('userData', JSON.stringify(res));
-      loading.dismiss();
-      this.routes.navigate(['current-sessions']);
-    })
-
   }
 
   showAlertController(sub_header, msg) {

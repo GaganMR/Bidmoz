@@ -292,12 +292,12 @@
                         };
 
                         var successCallback = function successCallback(success) {
-                          // alert('payment_id: ' + success.razorpay_payment_id)
-                          // var razorpay_payment_id = success.razorpay_payment_id
+                          alert('razorpay_payment_id: ' + success.razorpay_payment_id + '\nrazorpay_order_id: ' + success.razorpay_order_id + '\nrazorpay_signature: ' + success.razorpay_signature); // var razorpay_payment_id = success.razorpay_payment_id
                           // var razorpay_order_id = success.razorpay_order_id
                           // var razorpay_signature = success.razorpay_signature
-                          loading.dismiss();
-                          this.updateCouponPaymentDetails(result.payment_details_id, "Payment Completed", success.razorpay_payment_id, success.razorpay_order_id, success.razorpay_signature, "Payment Completed");
+
+                          loading.dismiss(); //this.updateCouponPaymentDetails(result.payment_details_id, "Payment Completed", success.razorpay_payment_id, success.razorpay_order_id, success.razorpay_signature, "Payment Completed");
+                          // this.updateCouponPaymentDetails(result.payment_details_id, "Payment Completed", '11111111111111111', '281643789', 'akcjbadc832duoecdjcbn', "Payment Completed");
                         };
 
                         var cancelCallback = function cancelCallback(error) {

@@ -111,12 +111,11 @@ export class UserRegisterPage implements OnInit {
   }
 
   async SubmitOtPForm() {
-    console.log(this.verifyOtpForm.value.otp, this.userData);
+    //console.log(this.verifyOtpForm.value.otp, this.userData);
     let user = {
       user_id: this.userData.user_id,
       phone_no: this.userData.phone_no,
     }
-    console.log(user);
     if(this.userData.otp == this.verifyOtpForm.value.otp){
 
       const loading = await this.loadingController.create({
@@ -139,6 +138,7 @@ export class UserRegisterPage implements OnInit {
           this.showAlertController("OTP!", "OTP varification failed, please try again later.");
         }  
       })
+      
     }
   }
 
