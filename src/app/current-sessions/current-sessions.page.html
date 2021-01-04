@@ -1,11 +1,11 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>current-sessions</ion-title>
+<ion-header>
+  <ion-toolbar color="featured">
+    <ion-title  class="ion-text-center">BIDMOZ</ion-title>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 
-<ion-content fullscreen class="ion-padding" scroll-y="false">
-  <ion-slides style="height:60px;" spaceBetween="-15" slidesPerView="auto">
+<ion-content fullscreen class="ion-padding" scroll-y="false" >
+  <!-- <ion-slides style="height:60px;" spaceBetween="-15" slidesPerView="auto">
     <ion-slide style="padding:5px; padding-bottom:0px; max-width:80px;" *ngFor="let item of upcommingSessions" (click)="goToUpcommingSessionDetails(item.session_id)">
       <div>
         <div style="margin:0 auto; width:55px; height:55px; border:1.5px solid black; border-radius:50px; background-color:white;">
@@ -15,7 +15,37 @@
         </div>
       </div>
     </ion-slide>
-</ion-slides>
+</ion-slides> -->
+<div style=" display: flex; align-items: center; justify-content: center;">
+<ion-card *ngIf="sessions" class="liveCard" >
+  <ion-card-content>
+      <div>
+        <h2  class="ion-text-center"><strong>{{sessions[0].product_name}}</strong></h2>
+          <h2 style="color: green;" class="ion-text-center"><b>Live</b></h2>
+          <!-- <div class="ion-text-start" style="padding-left: 28px;">
+          </div> -->
+        <div>
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="ion-text-center">
+                  <p>Starts at</p>
+                    <h2>{{sessions[0].end_date}}</h2>
+                </div>
+              </ion-col>
+              <ion-col>
+                <div class="ion-text-center">
+                  <p >Ends in:</p>
+                  <h2>{{sessions[0].end_date}}</h2>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+  </ion-card-content>
+  </ion-card>
+  </div>
   <ion-card *ngIf="sessions">
   <ion-card-content>
   <ion-slides  pager>
