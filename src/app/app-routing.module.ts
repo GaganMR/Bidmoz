@@ -58,6 +58,10 @@ const routes: Routes = [
   {
     path: 'featured-product-list',
     loadChildren: () => import('./featured-product-list/featured-product-list.module').then( m => m.FeaturedProductListPageModule)
+  },
+  {
+    path: 'current-session-details/:session_id',
+    loadChildren: () => import('./current-session-details/current-session-details.module').then( m => m.CurrentSessionDetailsPageModule)
   }
 ];
 

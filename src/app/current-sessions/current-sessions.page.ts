@@ -109,6 +109,10 @@ export class CurrentSessionsPage implements OnInit {
       this.router.navigate(['sign-in-or-sin-up']);
     }
   }
+  onClick(item){
+    console.log(item)
+    this.router.navigate(['current-session-details',item.session_id]);
+  }
 
   async presentToast(msg) {
     const toast = await this.toastController.create({

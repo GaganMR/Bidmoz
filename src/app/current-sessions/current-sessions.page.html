@@ -49,7 +49,7 @@
   <ion-card *ngIf="sessions">
   <ion-card-content>
   <ion-slides  pager>
-    <ion-slide *ngFor="let item of sessions" (click)="bidCount(item)">
+    <ion-slide *ngFor="let item of sessions" (click)="onClick(item)">
       <div class="slide">
         <h2>{{item.product_name}}</h2>
         <div class="ion-text-start" style="padding-left: 28px;">
@@ -61,8 +61,8 @@
         />
         <div class="ion-text-start">
           <h2>Ends in:&nbsp;&nbsp;&nbsp;<b>{{item.end_date}}</b></h2>
-          <h2>Current Price:&nbsp;&nbsp;&nbsp;&nbsp;<b>{{item.current_price}}</b></h2>
-          <h2>Participants:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{item.no_of_participants}}</b></h2>
+          <!-- <h2>Current Price:&nbsp;&nbsp;&nbsp;&nbsp;<b>{{item.current_price}}</b></h2>
+          <h2>Participants:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{item.no_of_participants}}</b></h2> -->
         </div>
       </div>
     </ion-slide>
