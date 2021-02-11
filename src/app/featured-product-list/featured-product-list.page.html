@@ -3,17 +3,33 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/current-sessions"></ion-back-button>
     </ion-buttons>
-    <ion-title>Featured-product-list</ion-title>
+    <ion-title>Upcomming-product-list</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <ion-slides spaceBetween="-15" slidesPerView="auto">
+    <ion-slide *ngFor="let item of featuredProduct" (click)="goToUpcommingSessionDetails(item.session_id)">
+      <div>
+        <div>
+          <img style="    height: 200px;
+          width: 100%;
+          margin-top: 15px;" src="https://bidmoz.thehereitis.com/bidmoz_app_apis/{{item.product_image_url}}">
+        </div>
+      </div>
+    </ion-slide>
+  </ion-slides>
   <ion-grid>
     <ion-row>
-      <ion-col size="6" *ngFor="let item of featuredProduct" (click)="coupnDetails(item)">
-        <ion-card style="border-radius: 10px;">
-            <img height="80" width="150" style="padding: 10px;" src="https://bidmoz.thehereitis.com/bidmoz_app_apis/{{item.product_image_url}}" />
-        </ion-card>
+      <ion-title style="color: white;">Featured-product-list</ion-title><br>
+      <ion-col size="6" *ngFor="let item of featuredProduct">
+        <div>
+          <ion-card style="border-radius: 10px;" (click)="couponDetails(item)">
+            <img height="80" width="150" style="padding: 10px;"
+              src="https://bidmoz.thehereitis.com/bidmoz_app_apis/{{item.product_image_url}}" />
+          </ion-card>
+        </div>
+
       </ion-col>
     </ion-row>
   </ion-grid>

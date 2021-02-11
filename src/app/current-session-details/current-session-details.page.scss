@@ -14,3 +14,12 @@
 #foo {
     --background: white;
 }
+
+ion-item{
+    color: white;
+    height: 30px;
+    background-color: gray;
+}
+.no-scroll {
+    --overflow: hidden;
+}

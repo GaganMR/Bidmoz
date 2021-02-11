@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServiceService } from '../api-service.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
@@ -19,7 +19,8 @@ export class FeaturedProductListPage implements OnInit {
   constructor(
     private socialSharing: SocialSharing,
     private apiServiceService:ApiServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private routes: Router
   ) { }
 
   ngOnInit() {
@@ -55,6 +56,11 @@ export class FeaturedProductListPage implements OnInit {
     this.apiServiceService.requestFeatureProductDetails(getFeaturedProductData).subscribe((res:any)=>{
       console.log(res)
     })
+  }
+
+  couponDetails(item){
+    console.log("jheh", item);
+    this.routes.navigate(['feature-product-details']);
   }
 
 }

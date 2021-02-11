@@ -1,16 +1,22 @@
 <ion-header>
   <ion-toolbar color="featured">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/current-sessions"></ion-back-button>
+    </ion-buttons>
     <ion-title class="ion-text-center">Product Name</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card>
+<ion-content class="no-scroll">
+  <ion-card style="height:100%">
   <ion-card-content *ngFor="let item of upcommingSessionDetails"  style="text-align:center;">
-    <img height="300" src="https://bidmoz.thehereitis.com/bidmoz_app_apis/{{item.product_image_url}}"/>
+    <img height="280" src="https://bidmoz.thehereitis.com/bidmoz_app_apis/{{item.product_image_url}}"/>
   </ion-card-content>
   </ion-card>
-  <ion-list #foo>
+  
+</ion-content>
+<ion-content>
+  <ion-list #foo >
     <ion-item>
       <ion-label>Pokémon Yellow</ion-label>
     </ion-item>
